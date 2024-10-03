@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Kontrollime kas on antud kasutajanimi
+if [ -z "$1" ]; then
+    echo "Palun sisestage kasutajanimi."
+    exit 1
+fi
+
+KASUTAJA=$1
+
+# Loome kasutaja parooli määramata
+sudo useradd -m "$KASUTAJA"
+
+# Loome kodukataloogid ja peidetud failid
+sudo mkdir -p /home/"$KASUTAJA"/.config
+sudo mkdir -p /home/"$KASUTAJA"/.local/share
+
+# Muudame kataloogid kasutaja omandiks
+sudo chown -R "$KASUTAJA":"$KASUTAJA" /home/"$KASUTAJA"
+
+echo "Kasutaja $KASUTAJA on loodud ja kodukataloog on seadistatud."
