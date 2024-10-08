@@ -1,0 +1,47 @@
+#!/bin/bash
+
+#Kasutajate lisamine lisa_kasutaja skripti abil, kui kasutajanimed ja paroolid on erinevates failides.
+
+if [ $# -ne 1 ] ;
+
+then
+
+	echo "Kasutusjuhend: $0 kasutajanimi"
+
+else
+
+	nimi=$1
+
+	userpass=$(paste -d":" uname1 paroolid1)
+
+		echo "$userpass"
+
+if [ -f $nimi -a -r $nimi ] ; then
+
+	echo "kasutaja fail on korras"
+
+		for rida in $(cat $nimi) 
+
+	do
+
+		kasutajanimi=$(echo "$rida")
+
+		useradd $kasutajanimi -m -s /bin/bash
+
+done
+
+	for line in $userpass
+
+do
+
+	echo "$line" | chpasswd
+
+done
+
+	else
+
+		echo "probleem failiga $uname1"
+
+	fi
+
+fi
