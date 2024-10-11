@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#Kasutaja lisamise skript
+#Kasutaja nimi tuleb anda skripti parameetrina
+#Skript peab antud nimega kasutaja lisama süsteemi ning looma vastava sisuga home dir
+
+#Käsurea kaudu parameetrite arv on $# sees olev number, meie korral peab olema 1 parameeter.
+#Kui parameetrit pole lisatud siis tuleb kasutajat juhendada.
+
+if [ $# -ne 1 ] ;
+
+	then
+
+		echo "Kasutusjuhend: $0 kasutajanimi"
+
+else #Defineerime vajaliku muutuja nime salvestamiseks, kuna andmed antakse käivitamisega siis on need $1,$2 jne
+
+kasutajanimi=$1
+
+useradd $kasutajanimi -m -s /bin/bash
+
+if [ $? -eq 0 ] ; 
+
+	then
+
+		echo "Kasutaja nimega $kasutajanimi on lisatud süsteemi"
+
+		cat /etc/passwd | grep $kasutajanimi
+
+		ls -la /home/$kasutajanimi
+
+else
+
+	echo "Probleem kasutaja $kasutajanimi lisamisega"
+
+	echo "Probleemi kood on $?"
+
+	fi
+
+#Skripti õige kasutamise kontrolli lõpp
+
+fi
