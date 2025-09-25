@@ -1,0 +1,83 @@
+import pandas as pd
+
+# Andmed Jira importfaili jaoks
+data = [
+    {
+        "Summary": "Tellida vajalik arvuti- ja võrguvarustus",
+        "Description": "Koostada nimekiri (20 lauaarvutit, monitorid, ruuterid, kaablid, UPS-id), võtta pakkumised ja kinnitada tellimus.",
+        "Issue Type": "Task",
+        "Status": "To Do",
+        "Assignee": "Anna",
+        "Labels": "riistvara",
+        "Due Date": "2025-09-30"
+    },
+    {
+        "Summary": "Koostada arvutiklassi võrguplaan",
+        "Description": "Joonistada skeem, määrata kaablite ja seadmete asukohad, arvestada turvanõuetega.",
+        "Issue Type": "Task",
+        "Status": "To Do",
+        "Assignee": "Marko",
+        "Labels": "võrk",
+        "Due Date": "2025-10-01"
+    },
+    {
+        "Summary": "Seadistada kasutajakontode õigused",
+        "Description": "Luuakse domeenikontod, määratakse õigused õpilastele ja õpetajatele (lugemine, kirjutamine, installiõigused).",
+        "Issue Type": "Task",
+        "Status": "To Do",
+        "Assignee": "Marko",
+        "Labels": "administreerimine",
+        "Due Date": "2025-10-05"
+    },
+    {
+        "Summary": "Paigaldada 20 arvutit ja monitori laudadele",
+        "Description": "Töökohtade ettevalmistus, seadmete paigaldus, kaablite ühendamine. Alustatud on tööd esimese 5 töökoha paigaldusega.",
+        "Issue Type": "Task",
+        "Status": "In Progress",
+        "Assignee": "Anna",
+        "Labels": "riistvara",
+        "Due Date": "2025-10-10"
+    },
+    {
+        "Summary": "Ühendada klassi seadmed võrku ja testida ühenduvust",
+        "Description": "Kõik arvutid ühendatakse võrku, testitakse ühendust internetiga ja sisevõrgu ressurssidega.",
+        "Issue Type": "Task",
+        "Status": "In Progress",
+        "Assignee": "Marko",
+        "Labels": "võrk",
+        "Due Date": "2025-10-12"
+    },
+    {
+        "Summary": "Projekti dokumentatsiooni haldamine ja aruandlus juhtkonnale",
+        "Description": "Vastutav isik peab ülevaadet projekti tööaja ja ülesannete osas. Koostab juhtkonnale aruandeid projekti progressi ja lõpptulemuste osas.",
+        "Issue Type": "Task",
+        "Status": "In Progress",
+        "Assignee": "Katrin",
+        "Labels": "administreerimine",
+        "Due Date": "2025-10-15"
+    },
+    {
+        "Summary": "Paigaldatud klassi mööbel",
+        "Description": "Mööbel tellitud ja paigaldatud, ruum valmis tehnikat vastu võtma.",
+        "Issue Type": "Task",
+        "Status": "Done",
+        "Assignee": "Katrin",
+        "Labels": "logistika",
+        "Due Date": "2025-09-01"
+    },
+    {
+        "Summary": "Korraldatud turvaline elektriühendus",
+        "Description": "Elektripistikud ja pikendusjuhtmed paigaldatud, testitud maandus, lisatud UPS-id.",
+        "Issue Type": "Task",
+        "Status": "Done",
+        "Assignee": "Rasmus",
+        "Labels": "elekter",
+        "Due Date": "2025-09-05"
+    }
+]
+
+# Loome DataFrame
+df = pd.DataFrame(data)
+
+# Salvestame faili
+df.to_csv("Jira_Import_Arvutiklass_Projekt.csv", index=False)
